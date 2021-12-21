@@ -73,8 +73,8 @@ final class DolphinSchedulerExtension
     @Override
     @SuppressWarnings("UnstableApiUsage")
     public void beforeAll(ExtensionContext context) throws IOException {
-        Awaitility.setDefaultTimeout(Duration.ofSeconds(10));
-        Awaitility.setDefaultPollInterval(Duration.ofSeconds(1));
+        Awaitility.setDefaultTimeout(Duration.ofSeconds(30));
+        Awaitility.setDefaultPollInterval(Duration.ofSeconds(3));
 
         Network network = null;
         HostAndPort address = null;
@@ -127,8 +127,8 @@ final class DolphinSchedulerExtension
         driver = browser.getWebDriver();
 
         driver.manage().timeouts()
-              .implicitlyWait(5, TimeUnit.SECONDS)
-              .pageLoadTimeout(5, TimeUnit.SECONDS);
+              .implicitlyWait(30, TimeUnit.SECONDS)
+              .pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().window()
               .maximize();
         if (address == null) {
